@@ -1,0 +1,2039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_9DAB36_LABORATORIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTES">
+          <Key>
+            <PropertyRef Name="CLIENTE_RUT" />
+          </Key>
+          <Property Name="CLIENTE_RUT" Type="int" Nullable="false" />
+          <Property Name="CLIENTE_DV" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CLIENTE_NOMBRE" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CLIENTE_PATERNO" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CLIENTE_MATERNO" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CLIENTE_NACIMIENTO" Type="datetime" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="COMUNAS">
+          <Key>
+            <PropertyRef Name="COMUNA_ID" />
+          </Key>
+          <Property Name="COMUNA_ID" Type="int" Nullable="false" />
+          <Property Name="COMUNA_NOMBRE" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="PROVINCIA_ID" Type="int" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="CONTACTOS">
+          <Key>
+            <PropertyRef Name="CONTACTO_ID" />
+          </Key>
+          <Property Name="CONTACTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UBICACION_ID" Type="int" Nullable="false" />
+          <Property Name="CONTACTO_NOMBRE" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CONTACTO_PATERNO" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CONTACTO_MATERNO" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="CONTACTO_CELULAR" Type="varchar" MaxLength="12" />
+          <Property Name="CONTACTO_TELEFONO" Type="varchar" MaxLength="12" />
+          <Property Name="CONTACTO_EMAIL" Type="varchar" MaxLength="150" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="DATOS_CLIENTES">
+          <Key>
+            <PropertyRef Name="DATOS_CLIENTE_ID" />
+          </Key>
+          <Property Name="DATOS_CLIENTE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLIENTE_RUT" Type="int" Nullable="false" />
+          <Property Name="DATOS_CLIENTE_CELULAR" Type="varchar" MaxLength="20" />
+          <Property Name="DATOS_CLIENTE_FONO" Type="varchar" MaxLength="20" />
+          <Property Name="DATOS_CLIENTE_EMAIL" Type="varchar" MaxLength="200" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="DETALLES_EVENTOS">
+          <Key>
+            <PropertyRef Name="DETALLE_EVENTO_ID" />
+          </Key>
+          <Property Name="DETALLE_EVENTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EVENTO_ID" Type="int" Nullable="false" />
+          <Property Name="DETALLE_EVENTO_DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="ESTADO_EVENTO" Type="varchar" MaxLength="60" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="DIRECCIONES">
+          <Key>
+            <PropertyRef Name="DIRECCION_ID" />
+          </Key>
+          <Property Name="DIRECCION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMUNA_ID" Type="int" Nullable="false" />
+          <Property Name="DIRECCION_DES" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DIRECCION_LATITUD" Type="float" />
+          <Property Name="DIRECCION_LONGITUD" Type="float" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="EQUIPOS_INSTALADOS">
+          <Key>
+            <PropertyRef Name="EQUIPO_INSTALADO_ID" />
+          </Key>
+          <Property Name="EQUIPO_INSTALADO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UBICACION_ID" Type="int" Nullable="false" />
+          <Property Name="MAQUINA_ID" Type="int" Nullable="false" />
+          <Property Name="EQUIPO_INSTALADO_DETALLE" Type="varchar" MaxLength="500" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="ESTADOS_EVENTOS">
+          <Key>
+            <PropertyRef Name="ESTADO_ID" />
+          </Key>
+          <Property Name="ESTADO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ESTADO_DES" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="EVENTOS">
+          <Key>
+            <PropertyRef Name="EVENTO_ID" />
+          </Key>
+          <Property Name="EVENTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_EVENTO_ID" Type="int" Nullable="false" />
+          <Property Name="CLIENTE_RUT" Type="int" Nullable="false" />
+          <Property Name="MAQUINA_ID" Type="int" Nullable="false" />
+          <Property Name="ESTADO_ID" Type="int" />
+          <Property Name="EVENTO_FECHA_HORA" Type="datetime" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="HISTORIAL_HORARIOS_UBICACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_HORARIO" Type="int" Nullable="false" />
+          <Property Name="UBICACION_ID" Type="int" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="HISTORIAL_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_USUARIO_ID" Type="int" Nullable="false" />
+          <Property Name="USUARIO_RUT" Type="int" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="HORARIOS_UBICACIONES">
+          <Key>
+            <PropertyRef Name="ID_HORARIO" />
+          </Key>
+          <Property Name="ID_HORARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HORA_APERTURA" Type="time" Precision="0" />
+          <Property Name="HORA_CIERRE" Type="time" Precision="0" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="MAQUINAS">
+          <Key>
+            <PropertyRef Name="MAQUINA_ID" />
+          </Key>
+          <Property Name="MAQUINA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAQUINA_SERIE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MODELO_ID" Type="int" Nullable="false" />
+          <Property Name="MARCA_ID" Type="int" />
+          <Property Name="MAQUINA_FEC_FABRI" Type="datetime" Nullable="false" />
+          <Property Name="MAQUINA_ENUSO" Type="bit" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="MARCAS">
+          <Key>
+            <PropertyRef Name="MARCA_ID" />
+          </Key>
+          <Property Name="MARCA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MARCA_DESCRIPCION" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="MODELOS">
+          <Key>
+            <PropertyRef Name="MODELO_ID" />
+          </Key>
+          <Property Name="MODELO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MODELO_DESCRIPCION" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="PROVINCIAS">
+          <Key>
+            <PropertyRef Name="PROVINCIA_ID" />
+          </Key>
+          <Property Name="PROVINCIA_ID" Type="int" Nullable="false" />
+          <Property Name="PROVINCIA_NOMBRE" Type="varchar" MaxLength="100" />
+          <Property Name="REGION_ID" Type="int" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="REGIONES">
+          <Key>
+            <PropertyRef Name="REGION_ID" />
+          </Key>
+          <Property Name="REGION_ID" Type="int" Nullable="false" />
+          <Property Name="REGION_NOMBRE" Type="varchar" MaxLength="100" />
+          <Property Name="REGION_ORDINAL" Type="varchar" MaxLength="4" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="RUTAS">
+          <Key>
+            <PropertyRef Name="RUTA_ID" />
+          </Key>
+          <Property Name="RUTA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USUARIO_RUT" Type="int" Nullable="false" />
+          <Property Name="EVENTO_ID" Type="int" Nullable="false" />
+          <Property Name="RUTA_ESTADO" Type="bit" />
+          <Property Name="ID_USER" Type="int" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_USUARIO" />
+          </Key>
+          <Property Name="ID_TIPO_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION_USUARIO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPOS_EVENTOS">
+          <Key>
+            <PropertyRef Name="TIPO_EVENTO_ID" />
+          </Key>
+          <Property Name="TIPO_EVENTO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_EVENTO_DES" Type="varchar" MaxLength="60" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="TIPOS_USUARIOS">
+          <Key>
+            <PropertyRef Name="TIPO_USUARIO_ID" />
+          </Key>
+          <Property Name="TIPO_USUARIO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_USUARIO_DESCRIPCION" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="UBICACIONES">
+          <Key>
+            <PropertyRef Name="UBICACION_ID" />
+          </Key>
+          <Property Name="UBICACION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DIRECCION_ID" Type="int" Nullable="false" />
+          <Property Name="UBICACION_DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="USUARIO_RUT" />
+          </Key>
+          <Property Name="USUARIO_RUT" Type="int" Nullable="false" />
+          <Property Name="USUARIO_DV" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="USUARIO_USERNAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USUARIO_PASSWORD" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="USUARIO_NOMBRE" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="USUARIO_PATERNO" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="USUARIO_MATERNO" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="USUARIO_NACIMIENTO" Type="datetime" Nullable="false" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="CREATED" Type="datetime" />
+          <Property Name="MODIFIED" Type="datetime" />
+          <Property Name="DELETED" Type="bit" />
+        </EntityType>
+        <Association Name="FK_COMUNAS_14_PROVINCI">
+          <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="1" />
+          <End Role="COMUNAS" Type="Self.COMUNAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVINCIAS">
+              <PropertyRef Name="PROVINCIA_ID" />
+            </Principal>
+            <Dependent Role="COMUNAS">
+              <PropertyRef Name="PROVINCIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACTO_6_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="CONTACTOS" Type="Self.CONTACTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="UBICACION_ID" />
+            </Principal>
+            <Dependent Role="CONTACTOS">
+              <PropertyRef Name="UBICACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DATOS_CL_22_CLIENTES">
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="DATOS_CLIENTES" Type="Self.DATOS_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Principal>
+            <Dependent Role="DATOS_CLIENTES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLES_18_EVENTOS">
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="1" />
+          <End Role="DETALLES_EVENTOS" Type="Self.DETALLES_EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTOS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Principal>
+            <Dependent Role="DETALLES_EVENTOS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIRECCIO_9_COMUNAS">
+          <End Role="COMUNAS" Type="Self.COMUNAS" Multiplicity="1" />
+          <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNAS">
+              <PropertyRef Name="COMUNA_ID" />
+            </Principal>
+            <Dependent Role="DIRECCIONES">
+              <PropertyRef Name="COMUNA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOS__5_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="EQUIPOS_INSTALADOS" Type="Self.EQUIPOS_INSTALADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="UBICACION_ID" />
+            </Principal>
+            <Dependent Role="EQUIPOS_INSTALADOS">
+              <PropertyRef Name="UBICACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOS_INSTALADOS_MAQUINAS">
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="1" />
+          <End Role="EQUIPOS_INSTALADOS" Type="Self.EQUIPOS_INSTALADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAQUINAS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Principal>
+            <Dependent Role="EQUIPOS_INSTALADOS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_12_MAQUINAS">
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAQUINAS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_13_TIPOS_EV">
+          <End Role="TIPOS_EVENTOS" Type="Self.TIPOS_EVENTOS" Multiplicity="1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOS_EVENTOS">
+              <PropertyRef Name="TIPO_EVENTO_ID" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="TIPO_EVENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_16_CLIENTES">
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_ESTADOS_EVENTOS">
+          <End Role="ESTADOS_EVENTOS" Type="Self.ESTADOS_EVENTOS" Multiplicity="0..1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADOS_EVENTOS">
+              <PropertyRef Name="ESTADO_ID" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="ESTADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_15_HORARIOS">
+          <End Role="HORARIOS_UBICACIONES" Type="Self.HORARIOS_UBICACIONES" Multiplicity="1" />
+          <End Role="HISTORIAL_HORARIOS_UBICACION" Type="Self.HISTORIAL_HORARIOS_UBICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HORARIOS_UBICACIONES">
+              <PropertyRef Name="ID_HORARIO" />
+            </Principal>
+            <Dependent Role="HISTORIAL_HORARIOS_UBICACION">
+              <PropertyRef Name="ID_HORARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_20_USUARIOS">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="HISTORIAL_USUARIOS" Type="Self.HISTORIAL_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Principal>
+            <Dependent Role="HISTORIAL_USUARIOS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_21_TIPOS_US">
+          <End Role="TIPOS_USUARIOS" Type="Self.TIPOS_USUARIOS" Multiplicity="1" />
+          <End Role="HISTORIAL_USUARIOS" Type="Self.HISTORIAL_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOS_USUARIOS">
+              <PropertyRef Name="TIPO_USUARIO_ID" />
+            </Principal>
+            <Dependent Role="HISTORIAL_USUARIOS">
+              <PropertyRef Name="TIPO_USUARIO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_8_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="HISTORIAL_HORARIOS_UBICACION" Type="Self.HISTORIAL_HORARIOS_UBICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="UBICACION_ID" />
+            </Principal>
+            <Dependent Role="HISTORIAL_HORARIOS_UBICACION">
+              <PropertyRef Name="UBICACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAQUINAS_3_MODELOS">
+          <End Role="MODELOS" Type="Self.MODELOS" Multiplicity="1" />
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELOS">
+              <PropertyRef Name="MODELO_ID" />
+            </Principal>
+            <Dependent Role="MAQUINAS">
+              <PropertyRef Name="MODELO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAQUINAS_MARCAS">
+          <End Role="MARCAS" Type="Self.MARCAS" Multiplicity="0..1" />
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCAS">
+              <PropertyRef Name="MARCA_ID" />
+            </Principal>
+            <Dependent Role="MAQUINAS">
+              <PropertyRef Name="MARCA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROVINCI_23_REGIONES">
+          <End Role="REGIONES" Type="Self.REGIONES" Multiplicity="1" />
+          <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONES">
+              <PropertyRef Name="REGION_ID" />
+            </Principal>
+            <Dependent Role="PROVINCIAS">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RUTAS_17_EVENTOS">
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="1" />
+          <End Role="RUTAS" Type="Self.RUTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTOS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Principal>
+            <Dependent Role="RUTAS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RUTAS_19_USUARIOS">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="RUTAS" Type="Self.RUTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Principal>
+            <Dependent Role="RUTAS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UBICACIO_7_DIRECCIO">
+          <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="1" />
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCIONES">
+              <PropertyRef Name="DIRECCION_ID" />
+            </Principal>
+            <Dependent Role="UBICACIONES">
+              <PropertyRef Name="DIRECCION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Carga_Grilla_Listado_Rutas_Tecnicos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_tecnico" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="Sp_Carga_Combo_Box" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Flag" Type="int" Mode="In" />
+          <Parameter Name="ddlFlag" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Carga_Grilla_Detalles_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_evento" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Cierra_Evento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_evento" Type="int" Mode="In" />
+          <Parameter Name="detalle_evento" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cliente_rut" Type="int" Mode="In" />
+          <Parameter Name="cliente_dv" Type="char" Mode="In" />
+          <Parameter Name="cliente_nombre" Type="varchar" Mode="In" />
+          <Parameter Name="cliente_paterno" Type="varchar" Mode="In" />
+          <Parameter Name="cliente_materno" Type="varchar" Mode="In" />
+          <Parameter Name="cliente_nacimiento" Type="date" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+          <Parameter Name="datos_cliente_celular" Type="varchar" Mode="In" />
+          <Parameter Name="datos_cliente_fono" Type="varchar" Mode="In" />
+          <Parameter Name="datos_cliente_email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Contactos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ubicacion_id" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="paterno" Type="varchar" Mode="In" />
+          <Parameter Name="materno" Type="varchar" Mode="In" />
+          <Parameter Name="celular" Type="varchar" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Detalle_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_evento" Type="int" Mode="In" />
+          <Parameter Name="detalle_evento" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Direccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="comuna_id" Type="int" Mode="In" />
+          <Parameter Name="direccion_des" Type="varchar" Mode="In" />
+          <Parameter Name="latitud" Type="float" Mode="In" />
+          <Parameter Name="longitud" Type="float" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Estado_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipo_evento" Type="int" Mode="In" />
+          <Parameter Name="cliente_rut" Type="int" Mode="In" />
+          <Parameter Name="maquina_id" Type="int" Mode="In" />
+          <Parameter Name="detalle_evento" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+          <Parameter Name="numero_evento" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="Sp_Registro_Marcas_Equipos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Modelos_Equipos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="marca_id" Type="int" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Ruta_Tecnico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="evento_id" Type="int" Mode="In" />
+          <Parameter Name="tecnico_id" Type="int" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Tipos_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_Registro_Usuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rut" Type="int" Mode="In" />
+          <Parameter Name="dv" Type="char" Mode="In" />
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="paterno" Type="varchar" Mode="In" />
+          <Parameter Name="materno" Type="varchar" Mode="In" />
+          <Parameter Name="nacimiento" Type="datetime" Mode="In" />
+          <Parameter Name="id_user" Type="int" Mode="In" />
+          <Parameter Name="tipo_usuario_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DB_9DAB36_LABORATORIOModelStoreContainer">
+          <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMUNAS" EntityType="Self.COMUNAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTACTOS" EntityType="Self.CONTACTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DATOS_CLIENTES" EntityType="Self.DATOS_CLIENTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLES_EVENTOS" EntityType="Self.DETALLES_EVENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EQUIPOS_INSTALADOS" EntityType="Self.EQUIPOS_INSTALADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTADOS_EVENTOS" EntityType="Self.ESTADOS_EVENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EVENTOS" EntityType="Self.EVENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORIAL_HORARIOS_UBICACION" EntityType="Self.HISTORIAL_HORARIOS_UBICACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORIAL_USUARIOS" EntityType="Self.HISTORIAL_USUARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HORARIOS_UBICACIONES" EntityType="Self.HORARIOS_UBICACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAQUINAS" EntityType="Self.MAQUINAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MARCAS" EntityType="Self.MARCAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODELOS" EntityType="Self.MODELOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGIONES" EntityType="Self.REGIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RUTAS" EntityType="Self.RUTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPOS_EVENTOS" EntityType="Self.TIPOS_EVENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPOS_USUARIOS" EntityType="Self.TIPOS_USUARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UBICACIONES" EntityType="Self.UBICACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_COMUNAS_14_PROVINCI" Association="Self.FK_COMUNAS_14_PROVINCI">
+            <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
+            <End Role="COMUNAS" EntitySet="COMUNAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACTO_6_UBICACIO" Association="Self.FK_CONTACTO_6_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="CONTACTOS" EntitySet="CONTACTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DATOS_CL_22_CLIENTES" Association="Self.FK_DATOS_CL_22_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="DATOS_CLIENTES" EntitySet="DATOS_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLES_18_EVENTOS" Association="Self.FK_DETALLES_18_EVENTOS">
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+            <End Role="DETALLES_EVENTOS" EntitySet="DETALLES_EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIRECCIO_9_COMUNAS" Association="Self.FK_DIRECCIO_9_COMUNAS">
+            <End Role="COMUNAS" EntitySet="COMUNAS" />
+            <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOS__5_UBICACIO" Association="Self.FK_EQUIPOS__5_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="EQUIPOS_INSTALADOS" EntitySet="EQUIPOS_INSTALADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOS_INSTALADOS_MAQUINAS" Association="Self.FK_EQUIPOS_INSTALADOS_MAQUINAS">
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+            <End Role="EQUIPOS_INSTALADOS" EntitySet="EQUIPOS_INSTALADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_12_MAQUINAS" Association="Self.FK_EVENTOS_12_MAQUINAS">
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_13_TIPOS_EV" Association="Self.FK_EVENTOS_13_TIPOS_EV">
+            <End Role="TIPOS_EVENTOS" EntitySet="TIPOS_EVENTOS" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_16_CLIENTES" Association="Self.FK_EVENTOS_16_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_ESTADOS_EVENTOS" Association="Self.FK_EVENTOS_ESTADOS_EVENTOS">
+            <End Role="ESTADOS_EVENTOS" EntitySet="ESTADOS_EVENTOS" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_15_HORARIOS" Association="Self.FK_HISTORIA_15_HORARIOS">
+            <End Role="HORARIOS_UBICACIONES" EntitySet="HORARIOS_UBICACIONES" />
+            <End Role="HISTORIAL_HORARIOS_UBICACION" EntitySet="HISTORIAL_HORARIOS_UBICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_20_USUARIOS" Association="Self.FK_HISTORIA_20_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="HISTORIAL_USUARIOS" EntitySet="HISTORIAL_USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_21_TIPOS_US" Association="Self.FK_HISTORIA_21_TIPOS_US">
+            <End Role="TIPOS_USUARIOS" EntitySet="TIPOS_USUARIOS" />
+            <End Role="HISTORIAL_USUARIOS" EntitySet="HISTORIAL_USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_8_UBICACIO" Association="Self.FK_HISTORIA_8_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="HISTORIAL_HORARIOS_UBICACION" EntitySet="HISTORIAL_HORARIOS_UBICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAQUINAS_3_MODELOS" Association="Self.FK_MAQUINAS_3_MODELOS">
+            <End Role="MODELOS" EntitySet="MODELOS" />
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAQUINAS_MARCAS" Association="Self.FK_MAQUINAS_MARCAS">
+            <End Role="MARCAS" EntitySet="MARCAS" />
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROVINCI_23_REGIONES" Association="Self.FK_PROVINCI_23_REGIONES">
+            <End Role="REGIONES" EntitySet="REGIONES" />
+            <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RUTAS_17_EVENTOS" Association="Self.FK_RUTAS_17_EVENTOS">
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+            <End Role="RUTAS" EntitySet="RUTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RUTAS_19_USUARIOS" Association="Self.FK_RUTAS_19_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="RUTAS" EntitySet="RUTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UBICACIO_7_DIRECCIO" Association="Self.FK_UBICACIO_7_DIRECCIO">
+            <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_9DAB36_LABORATORIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENTES">
+          <Key>
+            <PropertyRef Name="CLIENTE_RUT" />
+          </Key>
+          <Property Name="CLIENTE_RUT" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTE_DV" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CLIENTE_NOMBRE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLIENTE_PATERNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLIENTE_MATERNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLIENTE_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="DATOS_CLIENTES" Relationship="Self.FK_DATOS_CL_22_CLIENTES" FromRole="CLIENTES" ToRole="DATOS_CLIENTES" />
+          <NavigationProperty Name="EVENTOS" Relationship="Self.FK_EVENTOS_16_CLIENTES" FromRole="CLIENTES" ToRole="EVENTOS" />
+        </EntityType>
+        <EntityType Name="COMUNAS">
+          <Key>
+            <PropertyRef Name="COMUNA_ID" />
+          </Key>
+          <Property Name="COMUNA_ID" Type="Int32" Nullable="false" />
+          <Property Name="COMUNA_NOMBRE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROVINCIA_ID" Type="Int32" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_COMUNAS_14_PROVINCI" FromRole="COMUNAS" ToRole="PROVINCIAS" />
+          <NavigationProperty Name="DIRECCIONES" Relationship="Self.FK_DIRECCIO_9_COMUNAS" FromRole="COMUNAS" ToRole="DIRECCIONES" />
+        </EntityType>
+        <EntityType Name="CONTACTOS">
+          <Key>
+            <PropertyRef Name="CONTACTO_ID" />
+          </Key>
+          <Property Name="CONTACTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UBICACION_ID" Type="Int32" Nullable="false" />
+          <Property Name="CONTACTO_NOMBRE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTACTO_PATERNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTACTO_MATERNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTACTO_CELULAR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACTO_TELEFONO" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACTO_EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="UBICACIONES" Relationship="Self.FK_CONTACTO_6_UBICACIO" FromRole="CONTACTOS" ToRole="UBICACIONES" />
+        </EntityType>
+        <EntityType Name="DATOS_CLIENTES">
+          <Key>
+            <PropertyRef Name="DATOS_CLIENTE_ID" />
+          </Key>
+          <Property Name="DATOS_CLIENTE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLIENTE_RUT" Type="Int32" Nullable="false" />
+          <Property Name="DATOS_CLIENTE_CELULAR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DATOS_CLIENTE_FONO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DATOS_CLIENTE_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="CLIENTES" Relationship="Self.FK_DATOS_CL_22_CLIENTES" FromRole="DATOS_CLIENTES" ToRole="CLIENTES" />
+        </EntityType>
+        <EntityType Name="DETALLES_EVENTOS">
+          <Key>
+            <PropertyRef Name="DETALLE_EVENTO_ID" />
+          </Key>
+          <Property Name="DETALLE_EVENTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EVENTO_ID" Type="Int32" Nullable="false" />
+          <Property Name="DETALLE_EVENTO_DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO_EVENTO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="EVENTOS" Relationship="Self.FK_DETALLES_18_EVENTOS" FromRole="DETALLES_EVENTOS" ToRole="EVENTOS" />
+        </EntityType>
+        <EntityType Name="DIRECCIONES">
+          <Key>
+            <PropertyRef Name="DIRECCION_ID" />
+          </Key>
+          <Property Name="DIRECCION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMUNA_ID" Type="Int32" Nullable="false" />
+          <Property Name="DIRECCION_DES" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION_LATITUD" Type="Double" />
+          <Property Name="DIRECCION_LONGITUD" Type="Double" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="COMUNAS" Relationship="Self.FK_DIRECCIO_9_COMUNAS" FromRole="DIRECCIONES" ToRole="COMUNAS" />
+          <NavigationProperty Name="UBICACIONES" Relationship="Self.FK_UBICACIO_7_DIRECCIO" FromRole="DIRECCIONES" ToRole="UBICACIONES" />
+        </EntityType>
+        <EntityType Name="EQUIPOS_INSTALADOS">
+          <Key>
+            <PropertyRef Name="EQUIPO_INSTALADO_ID" />
+          </Key>
+          <Property Name="EQUIPO_INSTALADO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UBICACION_ID" Type="Int32" Nullable="false" />
+          <Property Name="MAQUINA_ID" Type="Int32" Nullable="false" />
+          <Property Name="EQUIPO_INSTALADO_DETALLE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="UBICACIONES" Relationship="Self.FK_EQUIPOS__5_UBICACIO" FromRole="EQUIPOS_INSTALADOS" ToRole="UBICACIONES" />
+          <NavigationProperty Name="MAQUINAS" Relationship="Self.FK_EQUIPOS_INSTALADOS_MAQUINAS" FromRole="EQUIPOS_INSTALADOS" ToRole="MAQUINAS" />
+        </EntityType>
+        <EntityType Name="ESTADOS_EVENTOS">
+          <Key>
+            <PropertyRef Name="ESTADO_ID" />
+          </Key>
+          <Property Name="ESTADO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO_DES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="EVENTOS" Relationship="Self.FK_EVENTOS_ESTADOS_EVENTOS" FromRole="ESTADOS_EVENTOS" ToRole="EVENTOS" />
+        </EntityType>
+        <EntityType Name="EVENTOS">
+          <Key>
+            <PropertyRef Name="EVENTO_ID" />
+          </Key>
+          <Property Name="EVENTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_EVENTO_ID" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTE_RUT" Type="Int32" Nullable="false" />
+          <Property Name="MAQUINA_ID" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_ID" Type="Int32" />
+          <Property Name="EVENTO_FECHA_HORA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="CLIENTES" Relationship="Self.FK_EVENTOS_16_CLIENTES" FromRole="EVENTOS" ToRole="CLIENTES" />
+          <NavigationProperty Name="DETALLES_EVENTOS" Relationship="Self.FK_DETALLES_18_EVENTOS" FromRole="EVENTOS" ToRole="DETALLES_EVENTOS" />
+          <NavigationProperty Name="ESTADOS_EVENTOS" Relationship="Self.FK_EVENTOS_ESTADOS_EVENTOS" FromRole="EVENTOS" ToRole="ESTADOS_EVENTOS" />
+          <NavigationProperty Name="MAQUINAS" Relationship="Self.FK_EVENTOS_12_MAQUINAS" FromRole="EVENTOS" ToRole="MAQUINAS" />
+          <NavigationProperty Name="TIPOS_EVENTOS" Relationship="Self.FK_EVENTOS_13_TIPOS_EV" FromRole="EVENTOS" ToRole="TIPOS_EVENTOS" />
+          <NavigationProperty Name="RUTAS" Relationship="Self.FK_RUTAS_17_EVENTOS" FromRole="EVENTOS" ToRole="RUTAS" />
+        </EntityType>
+        <EntityType Name="HISTORIAL_HORARIOS_UBICACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_HORARIO" Type="Int32" Nullable="false" />
+          <Property Name="UBICACION_ID" Type="Int32" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="HORARIOS_UBICACIONES" Relationship="Self.FK_HISTORIA_15_HORARIOS" FromRole="HISTORIAL_HORARIOS_UBICACION" ToRole="HORARIOS_UBICACIONES" />
+          <NavigationProperty Name="UBICACIONES" Relationship="Self.FK_HISTORIA_8_UBICACIO" FromRole="HISTORIAL_HORARIOS_UBICACION" ToRole="UBICACIONES" />
+        </EntityType>
+        <EntityType Name="HISTORIAL_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_USUARIO_ID" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO_RUT" Type="Int32" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.FK_HISTORIA_20_USUARIOS" FromRole="HISTORIAL_USUARIOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="TIPOS_USUARIOS" Relationship="Self.FK_HISTORIA_21_TIPOS_US" FromRole="HISTORIAL_USUARIOS" ToRole="TIPOS_USUARIOS" />
+        </EntityType>
+        <EntityType Name="HORARIOS_UBICACIONES">
+          <Key>
+            <PropertyRef Name="ID_HORARIO" />
+          </Key>
+          <Property Name="ID_HORARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HORA_APERTURA" Type="Time" Precision="0" />
+          <Property Name="HORA_CIERRE" Type="Time" Precision="0" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="HISTORIAL_HORARIOS_UBICACION" Relationship="Self.FK_HISTORIA_15_HORARIOS" FromRole="HORARIOS_UBICACIONES" ToRole="HISTORIAL_HORARIOS_UBICACION" />
+        </EntityType>
+        <EntityType Name="MAQUINAS">
+          <Key>
+            <PropertyRef Name="MAQUINA_ID" />
+          </Key>
+          <Property Name="MAQUINA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAQUINA_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODELO_ID" Type="Int32" Nullable="false" />
+          <Property Name="MARCA_ID" Type="Int32" />
+          <Property Name="MAQUINA_FEC_FABRI" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MAQUINA_ENUSO" Type="Boolean" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="EQUIPOS_INSTALADOS" Relationship="Self.FK_EQUIPOS_INSTALADOS_MAQUINAS" FromRole="MAQUINAS" ToRole="EQUIPOS_INSTALADOS" />
+          <NavigationProperty Name="EVENTOS" Relationship="Self.FK_EVENTOS_12_MAQUINAS" FromRole="MAQUINAS" ToRole="EVENTOS" />
+          <NavigationProperty Name="MODELOS" Relationship="Self.FK_MAQUINAS_3_MODELOS" FromRole="MAQUINAS" ToRole="MODELOS" />
+          <NavigationProperty Name="MARCAS" Relationship="Self.FK_MAQUINAS_MARCAS" FromRole="MAQUINAS" ToRole="MARCAS" />
+        </EntityType>
+        <EntityType Name="MARCAS">
+          <Key>
+            <PropertyRef Name="MARCA_ID" />
+          </Key>
+          <Property Name="MARCA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MARCA_DESCRIPCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="MAQUINAS" Relationship="Self.FK_MAQUINAS_MARCAS" FromRole="MARCAS" ToRole="MAQUINAS" />
+        </EntityType>
+        <EntityType Name="MODELOS">
+          <Key>
+            <PropertyRef Name="MODELO_ID" />
+          </Key>
+          <Property Name="MODELO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MODELO_DESCRIPCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="MAQUINAS" Relationship="Self.FK_MAQUINAS_3_MODELOS" FromRole="MODELOS" ToRole="MAQUINAS" />
+        </EntityType>
+        <EntityType Name="PROVINCIAS">
+          <Key>
+            <PropertyRef Name="PROVINCIA_ID" />
+          </Key>
+          <Property Name="PROVINCIA_ID" Type="Int32" Nullable="false" />
+          <Property Name="PROVINCIA_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REGION_ID" Type="Int32" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="COMUNAS" Relationship="Self.FK_COMUNAS_14_PROVINCI" FromRole="PROVINCIAS" ToRole="COMUNAS" />
+          <NavigationProperty Name="REGIONES" Relationship="Self.FK_PROVINCI_23_REGIONES" FromRole="PROVINCIAS" ToRole="REGIONES" />
+        </EntityType>
+        <EntityType Name="REGIONES">
+          <Key>
+            <PropertyRef Name="REGION_ID" />
+          </Key>
+          <Property Name="REGION_ID" Type="Int32" Nullable="false" />
+          <Property Name="REGION_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="REGION_ORDINAL" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="PROVINCIAS" Relationship="Self.FK_PROVINCI_23_REGIONES" FromRole="REGIONES" ToRole="PROVINCIAS" />
+        </EntityType>
+        <EntityType Name="RUTAS">
+          <Key>
+            <PropertyRef Name="RUTA_ID" />
+          </Key>
+          <Property Name="RUTA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USUARIO_RUT" Type="Int32" Nullable="false" />
+          <Property Name="EVENTO_ID" Type="Int32" Nullable="false" />
+          <Property Name="RUTA_ESTADO" Type="Boolean" />
+          <Property Name="ID_USER" Type="Int32" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="EVENTOS" Relationship="Self.FK_RUTAS_17_EVENTOS" FromRole="RUTAS" ToRole="EVENTOS" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.FK_RUTAS_19_USUARIOS" FromRole="RUTAS" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_USUARIO" />
+          </Key>
+          <Property Name="ID_TIPO_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TIPOS_EVENTOS">
+          <Key>
+            <PropertyRef Name="TIPO_EVENTO_ID" />
+          </Key>
+          <Property Name="TIPO_EVENTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_EVENTO_DES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="EVENTOS" Relationship="Self.FK_EVENTOS_13_TIPOS_EV" FromRole="TIPOS_EVENTOS" ToRole="EVENTOS" />
+        </EntityType>
+        <EntityType Name="TIPOS_USUARIOS">
+          <Key>
+            <PropertyRef Name="TIPO_USUARIO_ID" />
+          </Key>
+          <Property Name="TIPO_USUARIO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_USUARIO_DESCRIPCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="HISTORIAL_USUARIOS" Relationship="Self.FK_HISTORIA_21_TIPOS_US" FromRole="TIPOS_USUARIOS" ToRole="HISTORIAL_USUARIOS" />
+        </EntityType>
+        <EntityType Name="UBICACIONES">
+          <Key>
+            <PropertyRef Name="UBICACION_ID" />
+          </Key>
+          <Property Name="UBICACION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DIRECCION_ID" Type="Int32" Nullable="false" />
+          <Property Name="UBICACION_DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="CONTACTOS" Relationship="Self.FK_CONTACTO_6_UBICACIO" FromRole="UBICACIONES" ToRole="CONTACTOS" />
+          <NavigationProperty Name="DIRECCIONES" Relationship="Self.FK_UBICACIO_7_DIRECCIO" FromRole="UBICACIONES" ToRole="DIRECCIONES" />
+          <NavigationProperty Name="EQUIPOS_INSTALADOS" Relationship="Self.FK_EQUIPOS__5_UBICACIO" FromRole="UBICACIONES" ToRole="EQUIPOS_INSTALADOS" />
+          <NavigationProperty Name="HISTORIAL_HORARIOS_UBICACION" Relationship="Self.FK_HISTORIA_8_UBICACIO" FromRole="UBICACIONES" ToRole="HISTORIAL_HORARIOS_UBICACION" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="USUARIO_RUT" />
+          </Key>
+          <Property Name="USUARIO_RUT" Type="Int32" Nullable="false" />
+          <Property Name="USUARIO_DV" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="USUARIO_USERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USUARIO_PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USUARIO_NOMBRE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USUARIO_PATERNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USUARIO_MATERNO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USUARIO_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIED" Type="DateTime" Precision="3" />
+          <Property Name="DELETED" Type="Boolean" />
+          <NavigationProperty Name="HISTORIAL_USUARIOS" Relationship="Self.FK_HISTORIA_20_USUARIOS" FromRole="USUARIOS" ToRole="HISTORIAL_USUARIOS" />
+          <NavigationProperty Name="RUTAS" Relationship="Self.FK_RUTAS_19_USUARIOS" FromRole="USUARIOS" ToRole="RUTAS" />
+        </EntityType>
+        <Association Name="FK_DATOS_CL_22_CLIENTES">
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="DATOS_CLIENTES" Type="Self.DATOS_CLIENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Principal>
+            <Dependent Role="DATOS_CLIENTES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_16_CLIENTES">
+          <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="CLIENTE_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMUNAS_14_PROVINCI">
+          <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="1" />
+          <End Role="COMUNAS" Type="Self.COMUNAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVINCIAS">
+              <PropertyRef Name="PROVINCIA_ID" />
+            </Principal>
+            <Dependent Role="COMUNAS">
+              <PropertyRef Name="PROVINCIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIRECCIO_9_COMUNAS">
+          <End Role="COMUNAS" Type="Self.COMUNAS" Multiplicity="1" />
+          <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNAS">
+              <PropertyRef Name="COMUNA_ID" />
+            </Principal>
+            <Dependent Role="DIRECCIONES">
+              <PropertyRef Name="COMUNA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACTO_6_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="CONTACTOS" Type="Self.CONTACTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="UBICACION_ID" />
+            </Principal>
+            <Dependent Role="CONTACTOS">
+              <PropertyRef Name="UBICACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DETALLES_18_EVENTOS">
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="1" />
+          <End Role="DETALLES_EVENTOS" Type="Self.DETALLES_EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTOS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Principal>
+            <Dependent Role="DETALLES_EVENTOS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UBICACIO_7_DIRECCIO">
+          <End Role="DIRECCIONES" Type="Self.DIRECCIONES" Multiplicity="1" />
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIRECCIONES">
+              <PropertyRef Name="DIRECCION_ID" />
+            </Principal>
+            <Dependent Role="UBICACIONES">
+              <PropertyRef Name="DIRECCION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOS__5_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="EQUIPOS_INSTALADOS" Type="Self.EQUIPOS_INSTALADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="UBICACION_ID" />
+            </Principal>
+            <Dependent Role="EQUIPOS_INSTALADOS">
+              <PropertyRef Name="UBICACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQUIPOS_INSTALADOS_MAQUINAS">
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="1" />
+          <End Role="EQUIPOS_INSTALADOS" Type="Self.EQUIPOS_INSTALADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAQUINAS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Principal>
+            <Dependent Role="EQUIPOS_INSTALADOS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_ESTADOS_EVENTOS">
+          <End Role="ESTADOS_EVENTOS" Type="Self.ESTADOS_EVENTOS" Multiplicity="0..1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADOS_EVENTOS">
+              <PropertyRef Name="ESTADO_ID" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="ESTADO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_12_MAQUINAS">
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAQUINAS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="MAQUINA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTOS_13_TIPOS_EV">
+          <End Role="TIPOS_EVENTOS" Type="Self.TIPOS_EVENTOS" Multiplicity="1" />
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOS_EVENTOS">
+              <PropertyRef Name="TIPO_EVENTO_ID" />
+            </Principal>
+            <Dependent Role="EVENTOS">
+              <PropertyRef Name="TIPO_EVENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RUTAS_17_EVENTOS">
+          <End Role="EVENTOS" Type="Self.EVENTOS" Multiplicity="1" />
+          <End Role="RUTAS" Type="Self.RUTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTOS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Principal>
+            <Dependent Role="RUTAS">
+              <PropertyRef Name="EVENTO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_15_HORARIOS">
+          <End Role="HORARIOS_UBICACIONES" Type="Self.HORARIOS_UBICACIONES" Multiplicity="1" />
+          <End Role="HISTORIAL_HORARIOS_UBICACION" Type="Self.HISTORIAL_HORARIOS_UBICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HORARIOS_UBICACIONES">
+              <PropertyRef Name="ID_HORARIO" />
+            </Principal>
+            <Dependent Role="HISTORIAL_HORARIOS_UBICACION">
+              <PropertyRef Name="ID_HORARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_8_UBICACIO">
+          <End Role="UBICACIONES" Type="Self.UBICACIONES" Multiplicity="1" />
+          <End Role="HISTORIAL_HORARIOS_UBICACION" Type="Self.HISTORIAL_HORARIOS_UBICACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UBICACIONES">
+              <PropertyRef Name="UBICACION_ID" />
+            </Principal>
+            <Dependent Role="HISTORIAL_HORARIOS_UBICACION">
+              <PropertyRef Name="UBICACION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_20_USUARIOS">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="HISTORIAL_USUARIOS" Type="Self.HISTORIAL_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Principal>
+            <Dependent Role="HISTORIAL_USUARIOS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORIA_21_TIPOS_US">
+          <End Role="TIPOS_USUARIOS" Type="Self.TIPOS_USUARIOS" Multiplicity="1" />
+          <End Role="HISTORIAL_USUARIOS" Type="Self.HISTORIAL_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOS_USUARIOS">
+              <PropertyRef Name="TIPO_USUARIO_ID" />
+            </Principal>
+            <Dependent Role="HISTORIAL_USUARIOS">
+              <PropertyRef Name="TIPO_USUARIO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAQUINAS_3_MODELOS">
+          <End Role="MODELOS" Type="Self.MODELOS" Multiplicity="1" />
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELOS">
+              <PropertyRef Name="MODELO_ID" />
+            </Principal>
+            <Dependent Role="MAQUINAS">
+              <PropertyRef Name="MODELO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MAQUINAS_MARCAS">
+          <End Role="MARCAS" Type="Self.MARCAS" Multiplicity="0..1" />
+          <End Role="MAQUINAS" Type="Self.MAQUINAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCAS">
+              <PropertyRef Name="MARCA_ID" />
+            </Principal>
+            <Dependent Role="MAQUINAS">
+              <PropertyRef Name="MARCA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROVINCI_23_REGIONES">
+          <End Role="REGIONES" Type="Self.REGIONES" Multiplicity="1" />
+          <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGIONES">
+              <PropertyRef Name="REGION_ID" />
+            </Principal>
+            <Dependent Role="PROVINCIAS">
+              <PropertyRef Name="REGION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RUTAS_19_USUARIOS">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="RUTAS" Type="Self.RUTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Principal>
+            <Dependent Role="RUTAS">
+              <PropertyRef Name="USUARIO_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_9DAB36_LABORATORIOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" />
+          <EntitySet Name="COMUNAS" EntityType="Self.COMUNAS" />
+          <EntitySet Name="CONTACTOS" EntityType="Self.CONTACTOS" />
+          <EntitySet Name="DATOS_CLIENTES" EntityType="Self.DATOS_CLIENTES" />
+          <EntitySet Name="DETALLES_EVENTOS" EntityType="Self.DETALLES_EVENTOS" />
+          <EntitySet Name="DIRECCIONES" EntityType="Self.DIRECCIONES" />
+          <EntitySet Name="EQUIPOS_INSTALADOS" EntityType="Self.EQUIPOS_INSTALADOS" />
+          <EntitySet Name="ESTADOS_EVENTOS" EntityType="Self.ESTADOS_EVENTOS" />
+          <EntitySet Name="EVENTOS" EntityType="Self.EVENTOS" />
+          <EntitySet Name="HISTORIAL_HORARIOS_UBICACION" EntityType="Self.HISTORIAL_HORARIOS_UBICACION" />
+          <EntitySet Name="HISTORIAL_USUARIOS" EntityType="Self.HISTORIAL_USUARIOS" />
+          <EntitySet Name="HORARIOS_UBICACIONES" EntityType="Self.HORARIOS_UBICACIONES" />
+          <EntitySet Name="MAQUINAS" EntityType="Self.MAQUINAS" />
+          <EntitySet Name="MARCAS" EntityType="Self.MARCAS" />
+          <EntitySet Name="MODELOS" EntityType="Self.MODELOS" />
+          <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" />
+          <EntitySet Name="REGIONES" EntityType="Self.REGIONES" />
+          <EntitySet Name="RUTAS" EntityType="Self.RUTAS" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" />
+          <EntitySet Name="TIPOS_EVENTOS" EntityType="Self.TIPOS_EVENTOS" />
+          <EntitySet Name="TIPOS_USUARIOS" EntityType="Self.TIPOS_USUARIOS" />
+          <EntitySet Name="UBICACIONES" EntityType="Self.UBICACIONES" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+          <AssociationSet Name="FK_DATOS_CL_22_CLIENTES" Association="Self.FK_DATOS_CL_22_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="DATOS_CLIENTES" EntitySet="DATOS_CLIENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_16_CLIENTES" Association="Self.FK_EVENTOS_16_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMUNAS_14_PROVINCI" Association="Self.FK_COMUNAS_14_PROVINCI">
+            <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
+            <End Role="COMUNAS" EntitySet="COMUNAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIRECCIO_9_COMUNAS" Association="Self.FK_DIRECCIO_9_COMUNAS">
+            <End Role="COMUNAS" EntitySet="COMUNAS" />
+            <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACTO_6_UBICACIO" Association="Self.FK_CONTACTO_6_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="CONTACTOS" EntitySet="CONTACTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DETALLES_18_EVENTOS" Association="Self.FK_DETALLES_18_EVENTOS">
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+            <End Role="DETALLES_EVENTOS" EntitySet="DETALLES_EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UBICACIO_7_DIRECCIO" Association="Self.FK_UBICACIO_7_DIRECCIO">
+            <End Role="DIRECCIONES" EntitySet="DIRECCIONES" />
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOS__5_UBICACIO" Association="Self.FK_EQUIPOS__5_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="EQUIPOS_INSTALADOS" EntitySet="EQUIPOS_INSTALADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQUIPOS_INSTALADOS_MAQUINAS" Association="Self.FK_EQUIPOS_INSTALADOS_MAQUINAS">
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+            <End Role="EQUIPOS_INSTALADOS" EntitySet="EQUIPOS_INSTALADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_ESTADOS_EVENTOS" Association="Self.FK_EVENTOS_ESTADOS_EVENTOS">
+            <End Role="ESTADOS_EVENTOS" EntitySet="ESTADOS_EVENTOS" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_12_MAQUINAS" Association="Self.FK_EVENTOS_12_MAQUINAS">
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTOS_13_TIPOS_EV" Association="Self.FK_EVENTOS_13_TIPOS_EV">
+            <End Role="TIPOS_EVENTOS" EntitySet="TIPOS_EVENTOS" />
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RUTAS_17_EVENTOS" Association="Self.FK_RUTAS_17_EVENTOS">
+            <End Role="EVENTOS" EntitySet="EVENTOS" />
+            <End Role="RUTAS" EntitySet="RUTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_15_HORARIOS" Association="Self.FK_HISTORIA_15_HORARIOS">
+            <End Role="HORARIOS_UBICACIONES" EntitySet="HORARIOS_UBICACIONES" />
+            <End Role="HISTORIAL_HORARIOS_UBICACION" EntitySet="HISTORIAL_HORARIOS_UBICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_8_UBICACIO" Association="Self.FK_HISTORIA_8_UBICACIO">
+            <End Role="UBICACIONES" EntitySet="UBICACIONES" />
+            <End Role="HISTORIAL_HORARIOS_UBICACION" EntitySet="HISTORIAL_HORARIOS_UBICACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_20_USUARIOS" Association="Self.FK_HISTORIA_20_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="HISTORIAL_USUARIOS" EntitySet="HISTORIAL_USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORIA_21_TIPOS_US" Association="Self.FK_HISTORIA_21_TIPOS_US">
+            <End Role="TIPOS_USUARIOS" EntitySet="TIPOS_USUARIOS" />
+            <End Role="HISTORIAL_USUARIOS" EntitySet="HISTORIAL_USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAQUINAS_3_MODELOS" Association="Self.FK_MAQUINAS_3_MODELOS">
+            <End Role="MODELOS" EntitySet="MODELOS" />
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MAQUINAS_MARCAS" Association="Self.FK_MAQUINAS_MARCAS">
+            <End Role="MARCAS" EntitySet="MARCAS" />
+            <End Role="MAQUINAS" EntitySet="MAQUINAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROVINCI_23_REGIONES" Association="Self.FK_PROVINCI_23_REGIONES">
+            <End Role="REGIONES" EntitySet="REGIONES" />
+            <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RUTAS_19_USUARIOS" Association="Self.FK_RUTAS_19_USUARIOS">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="RUTAS" EntitySet="RUTAS" />
+          </AssociationSet>
+          <FunctionImport Name="Carga_Grilla_Listado_Rutas_Tecnicos" ReturnType="Collection(DB_9DAB36_LABORATORIOModel.Carga_Grilla_Listado_Rutas_Tecnicos_Result)">
+            <Parameter Name="id_tecnico" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Carga_Combo_Box" ReturnType="Collection(DB_9DAB36_LABORATORIOModel.Sp_Carga_Combo_Box_Result)">
+            <Parameter Name="Flag" Mode="In" Type="Int32" />
+            <Parameter Name="ddlFlag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Carga_Grilla_Detalles_Eventos" ReturnType="Collection(DB_9DAB36_LABORATORIOModel.Sp_Carga_Grilla_Detalles_Eventos_Result)">
+            <Parameter Name="id_evento" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DB_9DAB36_LABORATORIOModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DB_9DAB36_LABORATORIOModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Cierra_Evento">
+            <Parameter Name="id_evento" Mode="In" Type="Int32" />
+            <Parameter Name="detalle_evento" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Cliente">
+            <Parameter Name="cliente_rut" Mode="In" Type="Int32" />
+            <Parameter Name="cliente_dv" Mode="In" Type="String" />
+            <Parameter Name="cliente_nombre" Mode="In" Type="String" />
+            <Parameter Name="cliente_paterno" Mode="In" Type="String" />
+            <Parameter Name="cliente_materno" Mode="In" Type="String" />
+            <Parameter Name="cliente_nacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+            <Parameter Name="datos_cliente_celular" Mode="In" Type="String" />
+            <Parameter Name="datos_cliente_fono" Mode="In" Type="String" />
+            <Parameter Name="datos_cliente_email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Contactos">
+            <Parameter Name="ubicacion_id" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="paterno" Mode="In" Type="String" />
+            <Parameter Name="materno" Mode="In" Type="String" />
+            <Parameter Name="celular" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Detalle_Eventos">
+            <Parameter Name="id_evento" Mode="In" Type="Int32" />
+            <Parameter Name="detalle_evento" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Direccion">
+            <Parameter Name="comuna_id" Mode="In" Type="Int32" />
+            <Parameter Name="direccion_des" Mode="In" Type="String" />
+            <Parameter Name="latitud" Mode="In" Type="Double" />
+            <Parameter Name="longitud" Mode="In" Type="Double" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Estado_Eventos">
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Eventos" ReturnType="Collection(Int32)">
+            <Parameter Name="tipo_evento" Mode="In" Type="Int32" />
+            <Parameter Name="cliente_rut" Mode="In" Type="Int32" />
+            <Parameter Name="maquina_id" Mode="In" Type="Int32" />
+            <Parameter Name="detalle_evento" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+            <Parameter Name="numero_evento" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Marcas_Equipos">
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Modelos_Equipos">
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="marca_id" Mode="In" Type="Int32" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Ruta_Tecnico">
+            <Parameter Name="evento_id" Mode="In" Type="Int32" />
+            <Parameter Name="tecnico_id" Mode="In" Type="Int32" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Tipos_Usuarios">
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_Registro_Usuarios">
+            <Parameter Name="rut" Mode="In" Type="Int32" />
+            <Parameter Name="dv" Mode="In" Type="String" />
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="paterno" Mode="In" Type="String" />
+            <Parameter Name="materno" Mode="In" Type="String" />
+            <Parameter Name="nacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="id_user" Mode="In" Type="Int32" />
+            <Parameter Name="tipo_usuario_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="Carga_Grilla_Listado_Rutas_Tecnicos_Result">
+          <Property Type="Int32" Name="EVENTO" Nullable="false" />
+          <Property Type="String" Name="TIPO_EVENTO" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="CLIENTE" Nullable="false" MaxLength="182" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="60" />
+          <Property Type="DateTime" Name="FECHA" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="Sp_Carga_Combo_Box_Result">
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="Sp_Carga_Grilla_Detalles_Eventos_Result">
+          <Property Type="Int32" Name="NRO" Nullable="false" />
+          <Property Type="String" Name="DESCRIPCIÓN" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="FECHA" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_9DAB36_LABORATORIOModelStoreContainer" CdmEntityContainer="DB_9DAB36_LABORATORIOEntities">
+          <EntitySetMapping Name="CLIENTES">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.CLIENTES">
+              <MappingFragment StoreEntitySet="CLIENTES">
+                <ScalarProperty Name="CLIENTE_RUT" ColumnName="CLIENTE_RUT" />
+                <ScalarProperty Name="CLIENTE_DV" ColumnName="CLIENTE_DV" />
+                <ScalarProperty Name="CLIENTE_NOMBRE" ColumnName="CLIENTE_NOMBRE" />
+                <ScalarProperty Name="CLIENTE_PATERNO" ColumnName="CLIENTE_PATERNO" />
+                <ScalarProperty Name="CLIENTE_MATERNO" ColumnName="CLIENTE_MATERNO" />
+                <ScalarProperty Name="CLIENTE_NACIMIENTO" ColumnName="CLIENTE_NACIMIENTO" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMUNAS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.COMUNAS">
+              <MappingFragment StoreEntitySet="COMUNAS">
+                <ScalarProperty Name="COMUNA_ID" ColumnName="COMUNA_ID" />
+                <ScalarProperty Name="COMUNA_NOMBRE" ColumnName="COMUNA_NOMBRE" />
+                <ScalarProperty Name="PROVINCIA_ID" ColumnName="PROVINCIA_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTACTOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.CONTACTOS">
+              <MappingFragment StoreEntitySet="CONTACTOS">
+                <ScalarProperty Name="CONTACTO_ID" ColumnName="CONTACTO_ID" />
+                <ScalarProperty Name="UBICACION_ID" ColumnName="UBICACION_ID" />
+                <ScalarProperty Name="CONTACTO_NOMBRE" ColumnName="CONTACTO_NOMBRE" />
+                <ScalarProperty Name="CONTACTO_PATERNO" ColumnName="CONTACTO_PATERNO" />
+                <ScalarProperty Name="CONTACTO_MATERNO" ColumnName="CONTACTO_MATERNO" />
+                <ScalarProperty Name="CONTACTO_CELULAR" ColumnName="CONTACTO_CELULAR" />
+                <ScalarProperty Name="CONTACTO_TELEFONO" ColumnName="CONTACTO_TELEFONO" />
+                <ScalarProperty Name="CONTACTO_EMAIL" ColumnName="CONTACTO_EMAIL" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DATOS_CLIENTES">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.DATOS_CLIENTES">
+              <MappingFragment StoreEntitySet="DATOS_CLIENTES">
+                <ScalarProperty Name="DATOS_CLIENTE_ID" ColumnName="DATOS_CLIENTE_ID" />
+                <ScalarProperty Name="CLIENTE_RUT" ColumnName="CLIENTE_RUT" />
+                <ScalarProperty Name="DATOS_CLIENTE_CELULAR" ColumnName="DATOS_CLIENTE_CELULAR" />
+                <ScalarProperty Name="DATOS_CLIENTE_FONO" ColumnName="DATOS_CLIENTE_FONO" />
+                <ScalarProperty Name="DATOS_CLIENTE_EMAIL" ColumnName="DATOS_CLIENTE_EMAIL" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLES_EVENTOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.DETALLES_EVENTOS">
+              <MappingFragment StoreEntitySet="DETALLES_EVENTOS">
+                <ScalarProperty Name="DETALLE_EVENTO_ID" ColumnName="DETALLE_EVENTO_ID" />
+                <ScalarProperty Name="EVENTO_ID" ColumnName="EVENTO_ID" />
+                <ScalarProperty Name="DETALLE_EVENTO_DESCRIPCION" ColumnName="DETALLE_EVENTO_DESCRIPCION" />
+                <ScalarProperty Name="ESTADO_EVENTO" ColumnName="ESTADO_EVENTO" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIRECCIONES">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.DIRECCIONES">
+              <MappingFragment StoreEntitySet="DIRECCIONES">
+                <ScalarProperty Name="DIRECCION_ID" ColumnName="DIRECCION_ID" />
+                <ScalarProperty Name="COMUNA_ID" ColumnName="COMUNA_ID" />
+                <ScalarProperty Name="DIRECCION_DES" ColumnName="DIRECCION_DES" />
+                <ScalarProperty Name="DIRECCION_LATITUD" ColumnName="DIRECCION_LATITUD" />
+                <ScalarProperty Name="DIRECCION_LONGITUD" ColumnName="DIRECCION_LONGITUD" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EQUIPOS_INSTALADOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.EQUIPOS_INSTALADOS">
+              <MappingFragment StoreEntitySet="EQUIPOS_INSTALADOS">
+                <ScalarProperty Name="EQUIPO_INSTALADO_ID" ColumnName="EQUIPO_INSTALADO_ID" />
+                <ScalarProperty Name="UBICACION_ID" ColumnName="UBICACION_ID" />
+                <ScalarProperty Name="MAQUINA_ID" ColumnName="MAQUINA_ID" />
+                <ScalarProperty Name="EQUIPO_INSTALADO_DETALLE" ColumnName="EQUIPO_INSTALADO_DETALLE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADOS_EVENTOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.ESTADOS_EVENTOS">
+              <MappingFragment StoreEntitySet="ESTADOS_EVENTOS">
+                <ScalarProperty Name="ESTADO_ID" ColumnName="ESTADO_ID" />
+                <ScalarProperty Name="ESTADO_DES" ColumnName="ESTADO_DES" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENTOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.EVENTOS">
+              <MappingFragment StoreEntitySet="EVENTOS">
+                <ScalarProperty Name="EVENTO_ID" ColumnName="EVENTO_ID" />
+                <ScalarProperty Name="TIPO_EVENTO_ID" ColumnName="TIPO_EVENTO_ID" />
+                <ScalarProperty Name="CLIENTE_RUT" ColumnName="CLIENTE_RUT" />
+                <ScalarProperty Name="MAQUINA_ID" ColumnName="MAQUINA_ID" />
+                <ScalarProperty Name="ESTADO_ID" ColumnName="ESTADO_ID" />
+                <ScalarProperty Name="EVENTO_FECHA_HORA" ColumnName="EVENTO_FECHA_HORA" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORIAL_HORARIOS_UBICACION">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.HISTORIAL_HORARIOS_UBICACION">
+              <MappingFragment StoreEntitySet="HISTORIAL_HORARIOS_UBICACION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_HORARIO" ColumnName="ID_HORARIO" />
+                <ScalarProperty Name="UBICACION_ID" ColumnName="UBICACION_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORIAL_USUARIOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.HISTORIAL_USUARIOS">
+              <MappingFragment StoreEntitySet="HISTORIAL_USUARIOS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TIPO_USUARIO_ID" ColumnName="TIPO_USUARIO_ID" />
+                <ScalarProperty Name="USUARIO_RUT" ColumnName="USUARIO_RUT" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HORARIOS_UBICACIONES">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.HORARIOS_UBICACIONES">
+              <MappingFragment StoreEntitySet="HORARIOS_UBICACIONES">
+                <ScalarProperty Name="ID_HORARIO" ColumnName="ID_HORARIO" />
+                <ScalarProperty Name="HORA_APERTURA" ColumnName="HORA_APERTURA" />
+                <ScalarProperty Name="HORA_CIERRE" ColumnName="HORA_CIERRE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAQUINAS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.MAQUINAS">
+              <MappingFragment StoreEntitySet="MAQUINAS">
+                <ScalarProperty Name="MAQUINA_ID" ColumnName="MAQUINA_ID" />
+                <ScalarProperty Name="MAQUINA_SERIE" ColumnName="MAQUINA_SERIE" />
+                <ScalarProperty Name="MODELO_ID" ColumnName="MODELO_ID" />
+                <ScalarProperty Name="MARCA_ID" ColumnName="MARCA_ID" />
+                <ScalarProperty Name="MAQUINA_FEC_FABRI" ColumnName="MAQUINA_FEC_FABRI" />
+                <ScalarProperty Name="MAQUINA_ENUSO" ColumnName="MAQUINA_ENUSO" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MARCAS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.MARCAS">
+              <MappingFragment StoreEntitySet="MARCAS">
+                <ScalarProperty Name="MARCA_ID" ColumnName="MARCA_ID" />
+                <ScalarProperty Name="MARCA_DESCRIPCION" ColumnName="MARCA_DESCRIPCION" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODELOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.MODELOS">
+              <MappingFragment StoreEntitySet="MODELOS">
+                <ScalarProperty Name="MODELO_ID" ColumnName="MODELO_ID" />
+                <ScalarProperty Name="MODELO_DESCRIPCION" ColumnName="MODELO_DESCRIPCION" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVINCIAS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.PROVINCIAS">
+              <MappingFragment StoreEntitySet="PROVINCIAS">
+                <ScalarProperty Name="PROVINCIA_ID" ColumnName="PROVINCIA_ID" />
+                <ScalarProperty Name="PROVINCIA_NOMBRE" ColumnName="PROVINCIA_NOMBRE" />
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGIONES">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.REGIONES">
+              <MappingFragment StoreEntitySet="REGIONES">
+                <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+                <ScalarProperty Name="REGION_NOMBRE" ColumnName="REGION_NOMBRE" />
+                <ScalarProperty Name="REGION_ORDINAL" ColumnName="REGION_ORDINAL" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RUTAS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.RUTAS">
+              <MappingFragment StoreEntitySet="RUTAS">
+                <ScalarProperty Name="RUTA_ID" ColumnName="RUTA_ID" />
+                <ScalarProperty Name="USUARIO_RUT" ColumnName="USUARIO_RUT" />
+                <ScalarProperty Name="EVENTO_ID" ColumnName="EVENTO_ID" />
+                <ScalarProperty Name="RUTA_ESTADO" ColumnName="RUTA_ESTADO" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_USUARIO">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.TIPO_USUARIO">
+              <MappingFragment StoreEntitySet="TIPO_USUARIO">
+                <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+                <ScalarProperty Name="DESCRIPCION_USUARIO" ColumnName="DESCRIPCION_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOS_EVENTOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.TIPOS_EVENTOS">
+              <MappingFragment StoreEntitySet="TIPOS_EVENTOS">
+                <ScalarProperty Name="TIPO_EVENTO_ID" ColumnName="TIPO_EVENTO_ID" />
+                <ScalarProperty Name="TIPO_EVENTO_DES" ColumnName="TIPO_EVENTO_DES" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOS_USUARIOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.TIPOS_USUARIOS">
+              <MappingFragment StoreEntitySet="TIPOS_USUARIOS">
+                <ScalarProperty Name="TIPO_USUARIO_ID" ColumnName="TIPO_USUARIO_ID" />
+                <ScalarProperty Name="TIPO_USUARIO_DESCRIPCION" ColumnName="TIPO_USUARIO_DESCRIPCION" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UBICACIONES">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.UBICACIONES">
+              <MappingFragment StoreEntitySet="UBICACIONES">
+                <ScalarProperty Name="UBICACION_ID" ColumnName="UBICACION_ID" />
+                <ScalarProperty Name="DIRECCION_ID" ColumnName="DIRECCION_ID" />
+                <ScalarProperty Name="UBICACION_DESCRIPCION" ColumnName="UBICACION_DESCRIPCION" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="USUARIO_RUT" ColumnName="USUARIO_RUT" />
+                <ScalarProperty Name="USUARIO_DV" ColumnName="USUARIO_DV" />
+                <ScalarProperty Name="USUARIO_USERNAME" ColumnName="USUARIO_USERNAME" />
+                <ScalarProperty Name="USUARIO_PASSWORD" ColumnName="USUARIO_PASSWORD" />
+                <ScalarProperty Name="USUARIO_NOMBRE" ColumnName="USUARIO_NOMBRE" />
+                <ScalarProperty Name="USUARIO_PATERNO" ColumnName="USUARIO_PATERNO" />
+                <ScalarProperty Name="USUARIO_MATERNO" ColumnName="USUARIO_MATERNO" />
+                <ScalarProperty Name="USUARIO_NACIMIENTO" ColumnName="USUARIO_NACIMIENTO" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="MODIFIED" ColumnName="MODIFIED" />
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Carga_Grilla_Listado_Rutas_Tecnicos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Carga_Grilla_Listado_Rutas_Tecnicos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.Carga_Grilla_Listado_Rutas_Tecnicos_Result">
+                <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+                <ScalarProperty Name="TIPO_EVENTO" ColumnName="TIPO EVENTO" />
+                <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="DB_9DAB36_LABORATORIOModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="Sp_Carga_Combo_Box" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Carga_Combo_Box">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.Sp_Carga_Combo_Box_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Carga_Grilla_Detalles_Eventos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Carga_Grilla_Detalles_Eventos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.Sp_Carga_Grilla_Detalles_Eventos_Result">
+                <ScalarProperty Name="NRO" ColumnName="NRO" />
+                <ScalarProperty Name="DESCRIPCIÓN" ColumnName="DESCRIPCIÓN" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DB_9DAB36_LABORATORIOModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DB_9DAB36_LABORATORIOModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DB_9DAB36_LABORATORIOModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DB_9DAB36_LABORATORIOModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9DAB36_LABORATORIOModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Cierra_Evento" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Cierra_Evento" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Cliente" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Cliente" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Contactos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Contactos" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Detalle_Eventos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Detalle_Eventos" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Direccion" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Direccion" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Estado_Eventos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Estado_Eventos" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Eventos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Eventos" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Marcas_Equipos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Marcas_Equipos" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Modelos_Equipos" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Modelos_Equipos" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Ruta_Tecnico" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Ruta_Tecnico" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Tipos_Usuarios" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Tipos_Usuarios" />
+          <FunctionImportMapping FunctionImportName="Sp_Registro_Usuarios" FunctionName="DB_9DAB36_LABORATORIOModel.Store.Sp_Registro_Usuarios" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DB_9DAB36_LABORATORIOModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DB_9DAB36_LABORATORIOModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

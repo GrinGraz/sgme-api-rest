@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c66721a1d3af44d2bcac7b9bf95cdb0e" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.CLIENTES" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.COMUNAS" Width="1.5" PointX="13.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.CONTACTOS" Width="1.5" PointX="20" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.DATOS_CLIENTES" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.DETALLES_EVENTOS" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.DIRECCIONES" Width="1.5" PointX="15.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.EQUIPOS_INSTALADOS" Width="1.5" PointX="23" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.ESTADOS_EVENTOS" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.EVENTOS" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.HISTORIAL_HORARIOS_UBICACION" Width="1.5" PointX="20" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.HISTORIAL_USUARIOS" Width="1.5" PointX="11.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.HORARIOS_UBICACIONES" Width="1.5" PointX="17.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.MAQUINAS" Width="1.5" PointX="3.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.MARCAS" Width="1.5" PointX="1.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.MODELOS" Width="1.5" PointX="1.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.PROVINCIAS" Width="1.5" PointX="11" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.REGIONES" Width="1.5" PointX="8.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.RUTAS" Width="1.5" PointX="11.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.TIPOS_EVENTOS" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.TIPOS_USUARIOS" Width="2.125" PointX="9" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.UBICACIONES" Width="1.5" PointX="17.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9DAB36_LABORATORIOModel.USUARIOS" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_DATOS_CL_22_CLIENTES" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_EVENTOS_16_CLIENTES" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_COMUNAS_14_PROVINCI" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_DIRECCIO_9_COMUNAS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_CONTACTO_6_UBICACIO" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_DETALLES_18_EVENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_UBICACIO_7_DIRECCIO" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_EQUIPOS__5_UBICACIO" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_EQUIPOS_INSTALADOS_MAQUINAS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_EVENTOS_ESTADOS_EVENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_EVENTOS_12_MAQUINAS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_EVENTOS_13_TIPOS_EV" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_RUTAS_17_EVENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_HISTORIA_15_HORARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_HISTORIA_8_UBICACIO" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_HISTORIA_20_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_HISTORIA_21_TIPOS_US" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_MAQUINAS_3_MODELOS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_MAQUINAS_MARCAS" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_PROVINCI_23_REGIONES" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_9DAB36_LABORATORIOModel.FK_RUTAS_19_USUARIOS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
